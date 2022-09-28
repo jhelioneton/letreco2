@@ -4,14 +4,13 @@ const tentativas = 6;
 const colunas = 5;
 
 for (let tentativaIndex = 0; tentativaIndex < tentativas; tentativaIndex++) {
-    const tentativaLetra = document.createElement("div");
-    tentativaLetra.setAttribute("id", tentativaIndex);
-    tentativaLetra.setAttribute("class", tentativa - letra);
-   
-    for (let colunaIndex = 0; colunaIndex < array.length; colunaIndex++) {
-        const colunaLetra = document
-        
+    const fileiraTentativa = document.createElement("div");
+    tentativaLetra.setAttribute("id", "tentativa" + tentativaIndex); //dar id
+    tentativaLetra.setAttribute("class", "fileira-tentativa"); //dar uma classe
+
+    for (let colunaIndex = 0; colunaIndex < colunas; colunaIndex++) {
+        const espacoLetra = document.createElement("div");
+        espacoLetra.setAttribute("tentativa" + tentativaIndex + "colunas" + colunaIndex);
+        espacoLetra.setAttribute("espaco-letra")
     }
 }
-
-//AMANHÃ ALTERAR OS INDEX DE PT PARA EN PRA NÃO SE FICAR CONFUSO!!!!!!!!!
