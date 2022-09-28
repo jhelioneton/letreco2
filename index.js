@@ -1,4 +1,8 @@
-const letras = document.querySelector(".letras"); 
+const letras = document.querySelector(".letras");
+const apagareEnter = document.querySelector ("#apagareEnter"); // Botão de apagar e enter.
+const primeiraLinhaTeclado = document.querySelector ("#primeiraLinhaTeclado"); // Primeira linha do teclado.
+const segundaLinhaTeclado = document.querySelector ("#segundaLinhaTeclado"); // Segunda linha do teclado.
+const terceiraLinhaTeclado = document.querySelector ("#terceiraLinhaTeclado"); // Terceira linha do Teclado.
 
 const rows = 6; //Numero de tentativas.
 const columns = 5; //Numero de letras.
