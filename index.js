@@ -1,4 +1,4 @@
-const letras = document.querySelector(".letras");
+const letras = document.querySelector(".letras"); 
 
 const tentativas = 6;
 const colunas = 5;
@@ -11,6 +11,7 @@ for (let tentativaIndex = 0; tentativaIndex < tentativas; tentativaIndex++) {
     for (let colunaIndex = 0; colunaIndex < colunas; colunaIndex++) {
         const espacoLetra = document.createElement("div");
         espacoLetra.setAttribute("tentativa" + tentativaIndex + "colunas" + colunaIndex);
-        espacoLetra.setAttribute("espaco-letra")
+        espacoLetra.setAttribute("espaco-letra");
+        tentativaLetra.append(espacoLetra);
     }
 }
