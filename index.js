@@ -12,7 +12,7 @@ const rows = 6; // Numero de tentativas.
 const columns = 5; // Numero de letras.
 
 let currentRow = 0; // Fileira atual.
-let cuurrentColumn = 0; // Coluna atual.
+let currentColumn = 0; // Coluna atual.
 
 // Criar as fileiras e colunas.
 for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
@@ -52,33 +52,40 @@ enterButton.addEventListener("click", enter);
 apagareEnter.append(enterButton);
 
 //  Criar a primeira linha do teclado.
-teclasPrimeiraLinha.forEach((key) => {
-    var buttonElement = document.createElement("button");
-    buttonElement.textContent = key;
-    buttonElement.setAttribute("id", key);
-    buttonElement.addEventListener("click", () => console.log("tecla: ", key));
-    primeiraLinhaTeclado.append(buttonElement);
-})
+//teclasPrimeiraLinha.forEach((key) => {
+   // var buttonElement = document.createElement("button");
+   // buttonElement.textContent = key;
+   // buttonElement.setAttribute("id", key);
+   // buttonElement.addEventListener("click", () => console.log("tecla: ", key));
+    //primeiraLinhaTeclado.append(buttonElement);
+//})
 
 // Criar a segunda linha do teclado.
-teclasSegundaLinha.forEach((key) => {
-    var buttonElement = document.createElement("button");
-    buttonElement.textContent = key;
-    buttonElement.setAttribute("id", key);
-    buttonElement.addEventListener("click", () => console.log("tecla: ", key));
-    segundaLinhaTeclado.append(buttonElement);
-})
+//teclasSegundaLinha.forEach((key) => {
+   // var buttonElement = document.createElement("button");
+   // buttonElement.textContent = key;
+   // buttonElement.setAttribute("id", key);
+   // buttonElement.addEventListener("click", () => console.log("tecla: ", key));
+    //segundaLinhaTeclado.append(buttonElement);
+//})
 
 // Criar a terceira linha do teclado.
-teclasTerceiraLinha.forEach((key) => {
+//teclasTerceiraLinha.forEach((key) => {
+    //var buttonElement = document.createElement("button");
+    //buttonElement.textContent = key;
+   // buttonElement.setAttribute("id", key);
+   // buttonElement.addEventListener("click", () => console.log("tecla: ", key));
+    //terceiraLinhaTeclado.append(buttonElement);
+//})
+
+const criarTeclado = (keys, linhaTeclado) => {
+    keys.forEach((key) => {
     var buttonElement = document.createElement("button");
     buttonElement.textContent = key;
     buttonElement.setAttribute("id", key);
-    buttonElement.addEventListener("click", () => console.log("tecla: ", key));
-    terceiraLinhaTeclado.append(buttonElement);
-})
-
-const aoApertar = (key) => {
-    const currentTile = document.querySelector("#row" + currentRow + "column" + cuurrentColumn);
-    currentTile.textContent = key;
+    buttonElement.addEventListener("click", () => console.log("Letra: "));
+    linhaTeclado.append(buttonElement);
+    });
 }
+
+criarTeclado(teclasPrimeiraLinha, primeiraLinhaTeclado);
