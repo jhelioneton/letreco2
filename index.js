@@ -26,6 +26,17 @@ for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
     letras.append(tileRow); // Adicionar a fileira.
 }
 
+// Função apagar.
+const apagar = () => {
+    console.log("Apagou ");
+}
+
+//Criar butão de apagar.
+const delButton = document.createElement("button");
+delButton.textContent = "<";
+delButton.addEventListener("click", apagar);
+apagareEnter.append(delButton);
+
 //  Criar a primeira linha do teclado.
 teclasPrimeiraLinha.forEach((key) => {
     var buttonElement = document.createElement("button");
