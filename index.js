@@ -25,3 +25,11 @@ for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
     }
     letras.append(tileRow); // Adicionar a fileira.
 }
+
+teclasPrimeiraLinha.forEach((key) => {
+    var buttonElement = document.createElement("button");
+    buttonElement.textContent = key;
+    buttonElement.setAttribute("id", key);
+    buttonElement.addEventListener("click", () => console.log("tecla: ", key));
+    primeiraLinhaTeclado.append(buttonElement);
+})
