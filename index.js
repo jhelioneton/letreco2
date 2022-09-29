@@ -68,6 +68,9 @@ criarTeclado(teclasTerceiraLinha, terceiraLinhaTeclado);
 
 // Ao apertar em alguma letra no teclado, ela aparece no espaço da tentativa.
 const aoApertar = (key) => {
+    if(currentColumn === columns){
+        return;
+    }
     const currentTile = document.querySelector("#row" + currentRow + "columns" + currentColumn);
     currentTile.textContent = key;
     currentColumn++;
