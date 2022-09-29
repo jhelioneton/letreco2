@@ -66,7 +66,9 @@ criarTeclado(teclasPrimeiraLinha, primeiraLinhaTeclado);
 criarTeclado(teclasSegundaLinha, segundaLinhaTeclado);
 criarTeclado(teclasTerceiraLinha, terceiraLinhaTeclado);
 
+// Ao apertar em alguma letra no teclado, ela aparece no espaço da tentativa.
 const aoApertar = (key) => {
     const currentTile = document.querySelector("#row" + currentRow + "columns" + currentColumn);
     currentTile.textContent = key;
+    currentColumn++;
 }
