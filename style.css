@@ -44,3 +44,11 @@
     display: flex;
     font-size: 20px;
 }
+
+.container-linha-teclado {
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    display: flex;
+}
