@@ -31,11 +31,22 @@ const apagar = () => {
     console.log("Apagou ");
 }
 
-//Criar butão de apagar.
+//Criar botão de apagar.
 const delButton = document.createElement("button");
 delButton.textContent = "<";
 delButton.addEventListener("click", apagar);
 apagareEnter.append(delButton);
+
+// Função enter.
+const enter = () => {
+    console.log("Verificando a palavra");
+}
+
+//Criar botão enter.
+const enterButton = document.createElement("button");
+enterButton.textContent = "Enter";
+enterButton.addEventListener("click", enter);
+apagareEnter.append(enterButton);
 
 //  Criar a primeira linha do teclado.
 teclasPrimeiraLinha.forEach((key) => {
