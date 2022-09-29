@@ -54,11 +54,11 @@ apagareEnter.append(enterButton);
 // Criar teclado.
 const criarTeclado = (keys, linhaTeclado) => {
     keys.forEach((key) => {
-    var buttonElement = document.createElement("button");
-    buttonElement.textContent = key;
-    buttonElement.setAttribute("id", key);
-    buttonElement.addEventListener("click", () => console.log("Letra: "));
-    linhaTeclado.append(buttonElement);
+        var buttonElement = document.createElement("button");
+        buttonElement.textContent = key;
+        buttonElement.setAttribute("id", key);
+        buttonElement.addEventListener("click", () => console.log("Letra: ", key));
+        linhaTeclado.append(buttonElement);
     });
 }
 
