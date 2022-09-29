@@ -57,7 +57,7 @@ const criarTeclado = (keys, linhaTeclado) => {
         var buttonElement = document.createElement("button");
         buttonElement.textContent = key;
         buttonElement.setAttribute("id", key);
-        buttonElement.addEventListener("click", () => console.log("Letra: ", key));
+        buttonElement.addEventListener("click", () => aoApertar(key));
         linhaTeclado.append(buttonElement);
     });
 }
@@ -65,3 +65,8 @@ const criarTeclado = (keys, linhaTeclado) => {
 criarTeclado(teclasPrimeiraLinha, primeiraLinhaTeclado);
 criarTeclado(teclasSegundaLinha, segundaLinhaTeclado);
 criarTeclado(teclasTerceiraLinha, terceiraLinhaTeclado);
+
+const aoApertar = (key) => {
+    const currentTile = document.querySelector("#row" + currentRow + "columns" + currentColumn);
+    currentTile.textContent = key;
+}
