@@ -51,33 +51,7 @@ enterButton.textContent = "Enter";
 enterButton.addEventListener("click", enter);
 apagareEnter.append(enterButton);
 
-//  Criar a primeira linha do teclado.
-//teclasPrimeiraLinha.forEach((key) => {
-   // var buttonElement = document.createElement("button");
-   // buttonElement.textContent = key;
-   // buttonElement.setAttribute("id", key);
-   // buttonElement.addEventListener("click", () => console.log("tecla: ", key));
-    //primeiraLinhaTeclado.append(buttonElement);
-//})
-
-// Criar a segunda linha do teclado.
-//teclasSegundaLinha.forEach((key) => {
-   // var buttonElement = document.createElement("button");
-   // buttonElement.textContent = key;
-   // buttonElement.setAttribute("id", key);
-   // buttonElement.addEventListener("click", () => console.log("tecla: ", key));
-    //segundaLinhaTeclado.append(buttonElement);
-//})
-
-// Criar a terceira linha do teclado.
-//teclasTerceiraLinha.forEach((key) => {
-    //var buttonElement = document.createElement("button");
-    //buttonElement.textContent = key;
-   // buttonElement.setAttribute("id", key);
-   // buttonElement.addEventListener("click", () => console.log("tecla: ", key));
-    //terceiraLinhaTeclado.append(buttonElement);
-//})
-
+// Criar teclado.
 const criarTeclado = (keys, linhaTeclado) => {
     keys.forEach((key) => {
     var buttonElement = document.createElement("button");
@@ -89,3 +63,5 @@ const criarTeclado = (keys, linhaTeclado) => {
 }
 
 criarTeclado(teclasPrimeiraLinha, primeiraLinhaTeclado);
+criarTeclado(teclasSegundaLinha, segundaLinhaTeclado);
+criarTeclado(teclasTerceiraLinha, terceiraLinhaTeclado);
