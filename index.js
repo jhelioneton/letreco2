@@ -6,10 +6,13 @@ const terceiraLinhaTeclado = document.querySelector("#terceiraLinhaTeclado"); //
 
 const teclasPrimeiraLinha = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
 const teclasSegundaLinha = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
-const teclasTerceiraLinha= ["Z", "X", "C", "V", "B", "N", "M"];
+const teclasTerceiraLinha = ["Z", "X", "C", "V", "B", "N", "M"];
 
-const rows = 6; //Numero de tentativas.
-const columns = 5; //Numero de letras.
+const rows = 6; // Numero de tentativas.
+const columns = 5; // Numero de letras.
+
+let currentRow = 0; // Fileira atual.
+let cuurrentColumn = 0; // Coluna atual.
 
 // Criar as fileiras e colunas.
 for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
@@ -74,3 +77,8 @@ teclasTerceiraLinha.forEach((key) => {
     buttonElement.addEventListener("click", () => console.log("tecla: ", key));
     terceiraLinhaTeclado.append(buttonElement);
 })
+
+const aoApertar = (key) => {
+    const currentTile = document.querySelector("#row" + currentRow + "column" + cuurrentColumn);
+    currentTile.textContent = key;
+}
