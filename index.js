@@ -45,15 +45,17 @@ delButton.textContent = "<";
 delButton.addEventListener("click", apagar);
 apagareEnter.append(delButton);
 
-// Função enter.
-const enter = () => {
-    console.log("Verificando a palavra");
+const verificarTentativa = () => {
+    const verificar = tentativas [currentRow].join("");
+    if(tentativas.length !== columns){
+        return;
+    }
 }
 
 //Criar botão enter.
 const enterButton = document.createElement("button");
 enterButton.textContent = "Enter";
-enterButton.addEventListener("click", verificar);
+enterButton.addEventListener("click", verificarTentativa); // (BUG) Quando alter o enter por verificarTentativa, o teclado some.
 apagareEnter.append(enterButton);
 
 // Criar teclado.
@@ -79,11 +81,4 @@ const aoApertar = (key) => {
     const currentTile = document.querySelector("#row" + currentRow + "columns" + currentColumn);
     currentTile.textContent = key;
     currentColumn++;
-}
-
-const verificarTentativa = () => {
-    const verificar = tentativas [currentRow].join("");
-    if(tentativas.length !== columns){
-        return;
-    }
 }
