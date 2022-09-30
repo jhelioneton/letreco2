@@ -53,7 +53,7 @@ const enter = () => {
 //Criar botão enter.
 const enterButton = document.createElement("button");
 enterButton.textContent = "Enter";
-enterButton.addEventListener("click", enter);
+enterButton.addEventListener("click", verificar);
 apagareEnter.append(enterButton);
 
 // Criar teclado.
@@ -79,4 +79,11 @@ const aoApertar = (key) => {
     const currentTile = document.querySelector("#row" + currentRow + "columns" + currentColumn);
     currentTile.textContent = key;
     currentColumn++;
+}
+
+const verificarTentativa = () => {
+    const verificar = tentativas [currentRow].join("");
+    if(tentativas.length !== columns){
+        return;
+    }
 }
