@@ -60,3 +60,18 @@
 .desativado {
     border: 1px solid gray;
 }
+
+.errado {
+    background-color: red;
+    color: cornsilk;
+}
+
+.certa {
+    background-color: green;
+    color: cornsilk;
+}
+
+.lugarErrado {
+    background-color: orange;
+    color: cornsilk;
+}
