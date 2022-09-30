@@ -52,3 +52,11 @@
     justify-content: center;
     display: flex;
 }
+
+.ativo {
+    border: 3px solid black;
+}
+
+.desativado {
+    border: 1px solid gray;
+}
