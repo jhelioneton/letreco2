@@ -17,6 +17,12 @@ let currentColumn = 0; // Coluna atual.
 const palavraDoDia = "corte";
 const tentativas = [];
 
+let gameMap = {}
+for (let index = 0; index < palavraDoDia.length; index++); {
+    gameMap[palavraDoDia[index]] = index;
+
+}
+
 // Criar as fileiras e colunas.
 for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
     tentativas[rowIndex] = new Array(columns);
@@ -29,7 +35,7 @@ for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
         tileColumn.setAttribute("id", "row" + rowIndex + "columns" + columnIndex); // Dar id da coluna separada da fileira.
         tileColumn.setAttribute("class", rowIndex === 0 ? "tile-column ativo" : "tile-column desativado"); // Dar classe para coluna.
         tileRow.append(tileColumn); // Adicionar a coluna na fileira.
-        tentativas[rowIndex] [columnIndex] = "";
+        tentativas[rowIndex][columnIndex] = "";
     }
     letras.append(tileRow); // Adicionar a fileira.
 }
@@ -46,16 +52,31 @@ delButton.addEventListener("click", apagar);
 apagareEnter.append(delButton);
 
 const verificarTentativa = () => {
-    const verificar = tentativas [currentRow].join("");
-    if(tentativas.length !== columns){
+    const verificar = tentativas[currentRow].join("");
+    if (tentativas.length !== columns) {
         return;
+    }
+
+    var currentColumn = document.querySelectorAll(".ativo");
+    for (let index = 0; index < columns; index++); {
+        const letra = verificar[index];
+        if (gameMap[letra] === undefined) {
+            currentColumn[index].classList.add("errado");
+        } else {
+            if (gameMap[letra] === index) {
+                currentColumn[letra].classList.add("certa");
+            } else {
+                currentColumn[letra].classList.add("lugarErrado");
+            }
+        }
+
     }
 }
 
 //Criar botão enter.
 const enterButton = document.createElement("button");
 enterButton.textContent = "Enter";
-enterButton.addEventListener("click", verificarTentativa); // (BUG) Quando alter o enter por verificarTentativa, o teclado some.
+enterButton.addEventListener("click", verificarTentativa); // (correção) Acho que deu certo.
 apagareEnter.append(enterButton);
 
 // Criar teclado.
@@ -75,10 +96,11 @@ criarTeclado(teclasTerceiraLinha, terceiraLinhaTeclado);
 
 // Ao apertar em alguma letra no teclado, ela aparece no espaço da tentativa.
 const aoApertar = (key) => {
-    if(currentColumn === columns){ //Quando chegar no limite da coluna, e tentar colocar mais letras, não vai mais ficar dando erro.
+    if (currentColumn === columns) { //Quando chegar no limite da coluna, e tentar colocar mais letras, não vai mais ficar dando erro.
         return;
     }
     const currentTile = document.querySelector("#row" + currentRow + "columns" + currentColumn);
     currentTile.textContent = key;
+    tentativas[currentRow][currentColumn] = key;
     currentColumn++;
 }
