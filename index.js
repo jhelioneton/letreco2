@@ -14,8 +14,12 @@ const columns = 5; // Numero de letras.
 let currentRow = 0; // Fileira atual.
 let currentColumn = 0; // Coluna atual.
 
+const palavraDoDia = "corte";
+const tentativas = [];
+
 // Criar as fileiras e colunas.
 for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
+    tentativas[rowIndex] = new Array(columns);
     const tileRow = document.createElement("div");
     tileRow.setAttribute("id", "row" + rowIndex); // Dar id para a fileira.
     tileRow.setAttribute("class", "tile-row"); // Dar uma classe para a fileira.
@@ -23,8 +27,9 @@ for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
     for (let columnIndex = 0; columnIndex < columns; columnIndex++) {
         const tileColumn = document.createElement("div");
         tileColumn.setAttribute("id", "row" + rowIndex + "columns" + columnIndex); // Dar id da coluna separada da fileira.
-        tileColumn.setAttribute("class", "tile-column"); // Dar classe para coluna.
+        tileColumn.setAttribute("class", rowIndex === 0 ? "tile-column ativo" : "tile-column desativado"); // Dar classe para coluna.
         tileRow.append(tileColumn); // Adicionar a coluna na fileira.
+        tentativas[rowIndex] [columnIndex] = "";
     }
     letras.append(tileRow); // Adicionar a fileira.
 }
@@ -68,7 +73,7 @@ criarTeclado(teclasTerceiraLinha, terceiraLinhaTeclado);
 
 // Ao apertar em alguma letra no teclado, ela aparece no espaço da tentativa.
 const aoApertar = (key) => {
-    if(currentColumn === columns){
+    if(currentColumn === columns){ //Quando chegar no limite da coluna, e tentar colocar mais letras, não vai mais ficar dando erro.
         return;
     }
     const currentTile = document.querySelector("#row" + currentRow + "columns" + currentColumn);
