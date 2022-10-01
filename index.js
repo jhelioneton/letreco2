@@ -18,7 +18,7 @@ const palavraDoDia = "corte";
 const tentativas = [];
 
 let gameMap = {}
-for (let index = 0; index < palavraDoDia.length; index++); {
+for (let index = 0; index < palavraDoDia.length; index++) {
     gameMap[palavraDoDia[index]] = index;
 
 }
