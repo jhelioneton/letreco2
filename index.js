@@ -40,17 +40,6 @@ for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
     letras.append(tileRow); // Adicionar a fileira.
 }
 
-// Função apagar.
-const apagar = () => {
-    console.log("Apagou ");
-}
-
-//Criar botão de apagar.
-const delButton = document.createElement("button");
-delButton.textContent = "<";
-delButton.addEventListener("click", apagar);
-apagareEnter.append(delButton);
-
 const verificarTentativa = () => {
     const verificar = tentativas[currentRow].join("");
     if (tentativas.length !== columns) {
@@ -72,6 +61,17 @@ const verificarTentativa = () => {
 
     }
 }
+
+// Função apagar.
+const apagar = () => {
+    console.log("Apagou ");
+}
+
+//Criar botão de apagar.
+const delButton = document.createElement("button");
+delButton.textContent = "<";
+delButton.addEventListener("click", apagar);
+apagareEnter.append(delButton);
 
 //Criar botão enter.
 const enterButton = document.createElement("button");
