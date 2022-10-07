@@ -36,25 +36,54 @@ for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
     tiles.append(tileRow); // Adicionar a fileira.
 }
 
+// Verificação das letras.
 const verificarTentativa = () => {
-    const verificar = tentativas[currentRow].join("");
-    if (tentativas.length !== columns) {
+    const tentativa = tentativas[currentRow].join("");
+    if (tentativa.length !== columns) {
         return;
     }
 
-    var currentColumn = document.querySelectorAll(".ativo");
-    for (let index = 0; index < columns; index++); {
-        const letra = verificar[index];
+    var currentColumns = document.querySelectorAll(".atual"); // Fileira atual da tentativa.
+    for (let index = 0; index < columns; index++) {
+        const letra = tentativa[index];
         if (gameMap[letra] === undefined) {
-            currentColumn[index].classList.add("errado");
+            currentColumns[index].classList.add("errado") // Verifica sw a letra está errada.
         } else {
             if (gameMap[letra] === index) {
-                currentColumn[letra].classList.add("certa");
+                currentColumns[index].classList.add("certo") // Verifica se a letra está correta.
             } else {
-                currentColumn[letra].classList.add("lugarErrado");
+                currentColumns[index].classList.add("lugarErrado") //Verifica se a letra está na posição errada.
             }
         }
+    }
 
+    if (tentativa === palavra) {
+        window.alert("já acertou?") // Menssagem no caso de acerto da palavra.
+        return
+    } {
+        if (currentRow === rows - 1) {
+            window.alert("Acho que deu uma errada ai!") // Menssagem no caso de esgotaento das tentativas.
+        } else {
+            moveToNextRow()
+        }
+    }
+};
+
+// Função de ir para proxima linha de tentativa.
+const irParaProximaTentativa = () => {
+    var typingColumns = document.querySelectorAll(".atual")
+    for (let index = 0; index < typingColumns.length; index++) {
+        typingColumns[index].classList.remove("atual")
+        typingColumns[index].classList.add("desativado")
+    }
+    currentRow++
+    currentColumn = 0
+
+    const currentRowEl = document.querySelector("#row" + currentRow)
+    var currentColumns = currentRowEl.querySelectorAll(".tile-column")
+    for (let index = 0; index < currentColumns.length; index++) {
+        currentColumns[index].classList.remove("desativado")
+        currentColumns[index].classList.add("atual")
     }
 }
 
