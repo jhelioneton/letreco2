@@ -87,6 +87,34 @@ const irParaProximaTentativa = () => {
     }
 }
 
+// Ao apertar em alguma letra no teclado, ela aparece no espaço da tentativa, e não ultrapassar o limite de espaços de letras.
+const aoApertar = (key) => {
+    if (currentColumn === columns) {
+        return;
+    }
+    const currentTile = document.querySelector(
+        "#row" + currentRow + "column" + currentColumn
+    );
+    currentTile.textContent = key;
+    tentativas[currentRow][currentColumn] = key;
+    currentColumn++;
+};
+
+//Criar teclado.
+const criarTeclado = (keys, keyboardRow) => {
+    keys.forEach((key) => {
+        var buttonElement = document.createElement("button");
+        buttonElement.textContent = key;
+        buttonElement.setAttribute("id", key);
+        buttonElement.addEventListener("click", () => aoApertar(key));
+        keyboardRow.append(buttonElement);
+    });
+};
+
+criarTeclado(teclasPrimeiraLinha, tecladoPrimeiraLinha);
+criarTeclado(teclasSegundaLinha, tecladoSegundaLinha);
+criarTeclado(teclasTerceiraLinha, tecladoTerceiraLinha);
+
 // Função apagar.
 const apagar = () => {
     console.log("Apagou ");
@@ -104,30 +132,3 @@ enterButton.textContent = "Enter";
 enterButton.addEventListener("click", verificarTentativa); // (correção) Acho que deu certo.
 apagareEnter.append(enterButton);
 
-// Criar teclado.
-const criarTeclado = (keys, linhaTeclado) => {
-    keys.forEach((key) => {
-        var buttonElement = document.createElement("button");
-        buttonElement.textContent = key;
-        buttonElement.setAttribute("id", key);
-        buttonElement.addEventListener("click", () => aoApertar(key));
-        linhaTeclado.append(buttonElement);
-    });
-}
-
-criarTeclado(teclasPrimeiraLinha, primeiraLinhaTeclado);
-criarTeclado(teclasSegundaLinha, segundaLinhaTeclado);
-criarTeclado(teclasTerceiraLinha, terceiraLinhaTeclado);
-
-// Ao apertar em alguma letra no teclado, ela aparece no espaço da tentativa, e não ultrapassar o limite de espaços de letras.
-const aoApertar = (key) => {
-    if (currentColumn === columns) {
-        return;
-    }
-    const currentTile = document.querySelector(
-        "#row" + currentRow + "column" + currentColumn
-    );
-    currentTile.textContent = key;
-    tentativas[currentRow][currentColumn] = key;
-    currentColumn++;
-};
