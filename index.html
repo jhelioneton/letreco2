@@ -5,28 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
-    <title>LETRECO</title>
+    <title>Letreco</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="game-container"> <!-- Conteiner onde o jogo ficará -->
-        <div class="titulo"> <!-- Titulo do jogo --> 
-            <span>L</span>
-            <span>E</span>
-            <span class="letra-amarela">T</span>
-            <span>R</span>
-            <span class="letra-vermelha">E</span>
-            <span>C</span>
-            <span class="letra-verde">O</span>
+    <div class="game-container">
+        <div class="titulo-container">
+            <h1>
+                <span class="letra">L</span>
+                <span class="letra">E</span>
+                <span class="letraAmarela">T</span>
+                <span class="letra">R</span>
+                <span class="letraVermelha">E</span>
+                <span class="letra">C</span>
+                <span class="letraVerde">O</span>
+            </h1>
+
         </div>
-        <div class="letras"></div> <!-- Container onde serão inseridas as letras -->
-       <!-- Conteiner que possuí o teclado -->
-        <div class="teclado">
-            <div class="container-linha-teclado" id="apagareEnter"></div>
-            <div class="container-linha-teclado" id="primeiraLinhaTeclado"></div>
-            <div class="container-linha-teclado" id="segundaLinhaTeclado"></div>
-            <div class="container-linha-teclado" id="terceiraLinhaTeclado"></div>
+        <div class="tile-container"></div>
+        <div class="teclado-container">
+            <div class="teclado-row-container notAlphabetic" id="enterEApagar"></div>
+            <div class="teclado-row-container" id="tecladoPrimeiraLinha"></div>
+            <div class="teclado-row-container" id="tecladoSegundaLinha"></div>
+            <div class="teclado-row-container" id="tecladoTerceiraLinha"></div>
         </div>
     </div>
     <script src="index.js"></script>
