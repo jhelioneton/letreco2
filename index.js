@@ -119,13 +119,15 @@ criarTeclado(teclasPrimeiraLinha, primeiraLinhaTeclado);
 criarTeclado(teclasSegundaLinha, segundaLinhaTeclado);
 criarTeclado(teclasTerceiraLinha, terceiraLinhaTeclado);
 
-// Ao apertar em alguma letra no teclado, ela aparece no espaço da tentativa.
+// Ao apertar em alguma letra no teclado, ela aparece no espaço da tentativa, e não ultrapassar o limite de espaços de letras.
 const aoApertar = (key) => {
-    if (currentColumn === columns) { //Quando chegar no limite da coluna, e tentar colocar mais letras, não vai mais ficar dando erro.
+    if (currentColumn === columns) {
         return;
     }
-    const currentTile = document.querySelector("#row" + currentRow + "columns" + currentColumn);
+    const currentTile = document.querySelector(
+        "#row" + currentRow + "column" + currentColumn
+    );
     currentTile.textContent = key;
     tentativas[currentRow][currentColumn] = key;
     currentColumn++;
-}
+};
