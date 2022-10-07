@@ -20,7 +20,6 @@ for (let index = 0; index < palavra.length; index++) {
 }
 const tentativas = [];
 
-// Criar as fileiras e colunas.
 for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
     tentativas[rowIndex] = new Array(columns);
     const tileRow = document.createElement("div");
@@ -36,40 +35,38 @@ for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
     tiles.append(tileRow); // Adicionar a fileira.
 }
 
-// Verificação das letras.
 const verificarTentativa = () => {
     const tentativa = tentativas[currentRow].join("");
     if (tentativa.length !== columns) {
         return;
     }
 
-    var currentColumns = document.querySelectorAll(".atual"); // Fileira atual da tentativa.
+    var currentColumns = document.querySelectorAll(".atual");
     for (let index = 0; index < columns; index++) {
         const letra = tentativa[index];
         if (gameMap[letra] === undefined) {
-            currentColumns[index].classList.add("errado") // Verifica sw a letra está errada.
+            currentColumns[index].classList.add("errado")
         } else {
             if (gameMap[letra] === index) {
-                currentColumns[index].classList.add("certo") // Verifica se a letra está correta.
+                currentColumns[index].classList.add("certo")
             } else {
-                currentColumns[index].classList.add("lugarErrado") //Verifica se a letra está na posição errada.
+                currentColumns[index].classList.add("lugarErrado")
             }
         }
     }
 
     if (tentativa === palavra) {
-        window.alert("já acertou?") // Menssagem no caso de acerto da palavra.
+        window.alert("já acertou?")
         return
     } {
         if (currentRow === rows - 1) {
-            window.alert("Acho que deu uma errada ai!") // Menssagem no caso de esgotaento das tentativas.
+            window.alert("Acho que deu uma errada ai!")
         } else {
-            moveToNextRow()
+            irParaProximaTentativa()
         }
     }
 };
 
-// Função de ir para proxima linha de tentativa.
 const irParaProximaTentativa = () => {
     var typingColumns = document.querySelectorAll(".atual")
     for (let index = 0; index < typingColumns.length; index++) {
@@ -87,7 +84,6 @@ const irParaProximaTentativa = () => {
     }
 }
 
-// Ao apertar em alguma letra no teclado, ela aparece no espaço da tentativa, e não ultrapassar o limite de espaços de letras.
 const aoApertar = (key) => {
     if (currentColumn === columns) {
         return;
@@ -100,7 +96,6 @@ const aoApertar = (key) => {
     currentColumn++;
 };
 
-//Criar teclado.
 const criarTeclado = (keys, keyboardRow) => {
     keys.forEach((key) => {
         var buttonElement = document.createElement("button");
@@ -115,7 +110,6 @@ criarTeclado(teclasPrimeiraLinha, tecladoPrimeiraLinha);
 criarTeclado(teclasSegundaLinha, tecladoSegundaLinha);
 criarTeclado(teclasTerceiraLinha, tecladoTerceiraLinha);
 
-// Função apagar.
 const apagar = () => {
     if (currentColumn === 0) {
         return
@@ -127,8 +121,6 @@ const apagar = () => {
     tile.textContent = ""
 };
 
-
-// Criação botão de apagar e de enter.
 const apagarButton = document.createElement("button");
 apagarButton.addEventListener("click", apagar);
 apagarButton.textContent = "Del";
@@ -148,3 +140,5 @@ document.onkeydown = function (evt) {
     } else {
         aoApertar(evt.key.toUpperCase())
     }
+}
+// Agora consegue reconhecer as letras se estão certas, erradas ou no lugar errada, mas não passa para proxima linha de tentativa.
