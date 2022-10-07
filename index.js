@@ -117,18 +117,34 @@ criarTeclado(teclasTerceiraLinha, tecladoTerceiraLinha);
 
 // Função apagar.
 const apagar = () => {
-    console.log("Apagou ");
-}
+    if (currentColumn === 0) {
+        return
+    }
 
-//Criar botão de apagar.
-const delButton = document.createElement("button");
-delButton.textContent = "<";
-delButton.addEventListener("click", apagar);
-apagareEnter.append(delButton);
+    currentColumn--
+    tentativas[currentRow][currentColumn] = ""
+    const tile = document.querySelector("#row" + currentRow + "column" + currentColumn)
+    tile.textContent = ""
+};
 
-//Criar botão enter.
+
+// Criação botão de apagar e de enter.
+const apagarButton = document.createElement("button");
+apagarButton.addEventListener("click", apagar);
+apagarButton.textContent = "Del";
+enterEApagar.append(apagarButton);
+
 const enterButton = document.createElement("button");
-enterButton.textContent = "Enter";
-enterButton.addEventListener("click", verificarTentativa); // (correção) Acho que deu certo.
-apagareEnter.append(enterButton);
+enterButton.addEventListener("click", verificarTentativa);
+enterButton.textContent = "ENTER";
+enterEApagar.append(enterButton);
 
+document.onkeydown = function (evt) {
+    evt = evt || window.evt
+    if (evt.key === "Enter") {
+        verificarTentativa();
+    } else if (evt.key === "Backspace") {
+        apagar()
+    } else {
+        aoApertar(evt.key.toUpperCase())
+    }
