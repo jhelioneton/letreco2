@@ -141,4 +141,3 @@ document.onkeydown = function (evt) {
         aoApertar(evt.key.toUpperCase())
     }
 }
-// Agora consegue reconhecer as letras se estão certas, erradas ou no lugar errada, mas não passa para proxima linha de tentativa.
